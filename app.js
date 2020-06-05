@@ -27,9 +27,6 @@ function drawGridMap(url) {
       .attr('class', 'legend')
 
 
-
-    //let buttons = [{1: 'Плиточная'}, {2: 'Geo'}];
-
   d3.select("#grid").text().split("\n").forEach(function(line, i) {
     
     let re = /[\wа-я]+/ig;
@@ -46,15 +43,10 @@ function drawGridMap(url) {
     let jsonRegions = d.objects.rus_regions_simpl.geometries;
     for (let i = 0; i < jsonRegions.length; i++){
       let jsonName = jsonRegions[i].properties.short;
-      console.table(jsonRegions[i].properties.short)
       for (let j = 0; j < regions.length; j++){
         let arrName = regions[j].name;
         if(jsonName == arrName){
           regions[j]["migrants"] = parseInt(jsonRegions[i].properties.migrants);
-          regions[j]["tariff"] = parseInt(jsonRegions[i].properties.tariff);
-          regions[j]["nelegal"] = jsonRegions[i].properties.nelegal;
-          console.log(regions[j]["nelegal"]);
-          console.log(regions[j]["migrants"]);
         }
       }
     }
@@ -67,10 +59,6 @@ function drawGridMap(url) {
 
   function draw(){
 
-      var mouseover = function(d) {
-        tooltip
-          .style("opacity", 1)
-      }
     regionGroup = region.selectAll(null)
           .data(regions)
           .enter()
@@ -115,22 +103,16 @@ function drawGridMap(url) {
 
     title = svg.append("text")
         .attr('class', 'title')
-        .attr("x", 10)
-        .attr("y", 25 )
         .style("fill", "#676767")
         .text("В какие регионы приезжали мигранты в 2018 году (в абсолютных значениях)");
 
     credit1 = svg.append("text")
         .attr('class', 'credits')
-        .attr("x", 10)
-        .attr("y", 550)
         .style("fill", "#676767")
         .text("Важные истории, 2020");
 
     credit2 = svg.append("text")
         .attr('class', 'credits')
-        //.attr("x", 10)
-        //.attr("y", 570 )
         .style("fill", "#676767")
         .text("Данные: Росстат");
 
@@ -187,18 +169,7 @@ function drawGridMap(url) {
             .call(legend);
   };
 
-  function mouseover (d, element) {
-    console.table(d.name, d.nelegal)
-  };
 };
 
 
 drawGridMap('data.json');
-
-
-
-
-
-
-
-
