@@ -27,18 +27,18 @@ html {
   font: normal 15px "Proto Grotesk";
   font-display: swap;
   fill: black;
-  font-size: 0.9vw;
+  font-size: 0.82vw;
 }
 
 
 .label{
   font: normal 12px "Proto Grotesk";
-  font-size: 1vw;
+  font-size: 0.8vw;
 }
 
 .legendTitle{
   font: normal 15px "Proto Grotesk";
-  font-size: 1.4vw;
+  font-size: 1.2vw;
 }
 .credits{font: normal 15px "Proto Grotesk";
         fill: #676767;
