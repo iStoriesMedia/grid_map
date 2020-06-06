@@ -4,14 +4,14 @@ function drawGridMap(url) {
 
   let color = d3.scaleThreshold()
         .range(['#99372e', '#a95a4f', '#b77b70', '#c49c92', '#d1bcb4', '#e0dcd4'].reverse())
-        .domain([1000, 5000, 10000, 20000, 30000, 51000]);
+        .domain([10000, 30000, 100000, 500000, 1000000, 1700000]);
 
   let legendLinear = d3.scaleLinear()
                 .domain(color.domain())
                 .range(color.range());
   
   let legend = d3.legendColor()
-                .cells([1000, 5000, 10000, 20000, 30000, 51000])
+                .cells([10000, 30000, 100000, 500000, 1000000, 1700000])
                 .orient('horizontal')
                 .scale(legendLinear)
                 .labelFormat(d3.format(",.0f"))
@@ -104,7 +104,7 @@ function drawGridMap(url) {
     title = svg.append("text")
         .attr('class', 'title')
         .style("fill", "#676767")
-        .text("В какие регионы приезжали мигранты в 2018 году (в абсолютных значениях)");
+        .text("В какие регионы приезжали мигранты в январе-дек2018 году (в абсолютных значениях)");
 
     credit1 = svg.append("text")
         .attr('class', 'credits')
@@ -173,3 +173,11 @@ function drawGridMap(url) {
 
 
 drawGridMap('data.json');
+
+
+
+
+
+
+
+
